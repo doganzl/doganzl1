@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>메타 광고 지출 리포트 · 2026년 4월</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand: #3182f6;
+    --brand-dark: #1b64da;
+    --brand-darker: #154ab3;
+    --brand-50: #f3f8ff;
+    --brand-100: #e8f3ff;
+    --brand-200: #c9dfff;
+    --brand-300: #93bfff;
+    --bg: #f9fafb;
+    --surface: #ffffff;
+    --surface-2: #f2f4f6;
+    --ink: #191f28;
+    --ink-2: #333d4b;
+    --ink-3: #4e5968;
+    --ink-4: #6b7684;
+    --ink-5: #8b95a1;
+    --ink-6: #b0b8c1;
+    --border: #e5e8eb;
+    --border-light: #f2f4f6;
+    --green: #00bf40;
+    --green-light: #e6f9ec;
+    --red: #f04452;
+    --red-light: #feeaec;
+    --orange: #ff8a00;
+    --orange-light: #fff4e5;
+    --purple: #7a5af8;
+    --purple-light: #f0ecff;
+    --shadow-xs: 0 1px 2px rgba(25, 31, 40, 0.04);
+    --shadow-sm: 0 2px 8px rgba(25, 31, 40, 0.06);
+    --shadow-md: 0 4px 16px rgba(25, 31, 40, 0.08);
+    --shadow-brand: 0 4px 16px rgba(49, 130, 246, 0.25);
+    --r-sm: 8px;
+    --r: 12px;
+    --r-lg: 16px;
+    --r-xl: 20px;
+    --r-full: 999px;
+    --font: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'tnum' 1, 'ss06' 1;
+    font-weight: 500;
+  }
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* HERO */
+  .hero {
+    padding: 72px 0 56px;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 100%; max-width: 1280px; height: 320px;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(49, 130, 246, 0.08), transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(122, 90, 248, 0.04), transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    background: var(--brand-100);
+    color: var(--brand-dark);
+    border-radius: var(--r-full);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    margin-bottom: 24px;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--brand);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(49, 130, 246, 0.2);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(49, 130, 246, 0.2); }
+    50% { box-shadow: 0 0 0 7px rgba(49, 130, 246, 0.1); }
+  }
+  .hero h1 {
+    font-size: clamp(38px, 5.4vw, 60px);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+    margin-bottom: 18px;
+  }
+  .hero h1 .accent { color: var(--brand); }
+  .hero .sub {
+    font-size: 18px;
+    color: var(--ink-3);
+    font-weight: 600;
+    max-width: 680px;
+    margin-bottom: 40px;
+    line-height: 1.55;
+  }
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--surface);
+    border-radius: var(--r-lg);
+    padding: 8px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+  }
+  .hero-meta-item {
+    padding: 16px 20px;
+    border-right: 1px solid var(--border-light);
+  }
+  .hero-meta-item:last-child { border-right: none; }
+  .hero-meta-label {
+    font-size: 12px;
+    color: var(--ink-5);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .hero-meta-value {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  /* SECTION */
+  section {
+    padding: 56px 0;
+  }
+  .section-head {
+    margin-bottom: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .section-head .label {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--brand);
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .section-head h2 {
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+  .section-head .aside {
+    font-size: 13px;
+    color: var(--ink-5);
+    font-weight: 600;
+  }
+
+  /* BOTTOM-LINE HERO CARD */
+  .bottomline {
+    background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+    color: white;
+    border-radius: var(--r-xl);
+    padding: 36px 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-brand);
+    margin-bottom: 20px;
+  }
+  .bottomline.negative {
+    background: linear-gradient(135deg, #e04958, #b52c3c);
+    box-shadow: 0 4px 20px rgba(224, 73, 88, 0.28);
+  }
+  .bottomline::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 240px; height: 240px;
+    background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);
+    pointer-events: none;
+  }
+  .bl-label {
+    display: inline-block;
+    padding: 5px 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--r-full);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+  .bl-main {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+  .bl-amount {
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    font-feature-settings: 'tnum' 1;
+  }
+  .bl-unit { font-size: 22px; font-weight: 700; opacity: 0.9; }
+  .bl-desc {
+    font-size: 14px;
+    opacity: 0.92;
+    font-weight: 500;
+    line-height: 1.55;
+  }
+  .bl-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  .bl-stat-num {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-feature-settings: 'tnum' 1;
+  }
+  .bl-stat-label {
+    font-size: 11px;
+    opacity: 0.85;
+    font-weight: 600;
+    margin-top: 3px;
+  }
+
+  /* KPI Grid */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .kpi {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--r-lg);
+    padding: 24px;
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .kpi:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--brand-200);
+  }
+  .kpi-icon {
+    width: 38px; height: 38px;
+    border-radius: var(--r);
+    display: grid; place-items: center;
+    margin-bottom: 16px;
+    font-size: 17px;
+    background: var(--brand-100);
+    color: var(--brand);
+  }
+  .kpi-icon.rev { background: var(--green-light); color: var(--green); }
+  .kpi-icon.cost { background: var(--red-light); color: var(--red); }
+  .kpi-icon.purple { background: var(--purple-light); color: var(--purple); }
+  .kpi-label {
+    font-size: 13px;
+    color: var(--ink-4);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .kpi-value {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+  .kpi-num {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    line-height: 1;
+    font-feature-settings: 'tnum' 1;
+  }
+  .kpi-unit {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink-4);
+  }
+  .kpi-sub {
+    font-size: 12px;
+    color: var(--ink-5);
+    font-weight: 600;
+  }
+
+  /* FUNNEL */
+  .funnel-wrap {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 16px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-xs);
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .card-sub {
+    font-size: 12px;
+    color: var(--ink-5);
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .funnel-stages {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .fstage {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .fstage-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .fstage-name {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .fstage-name .emoji { font-size: 16px; }
+  .fstage-value {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    font-feature-settings: 'tnum' 1;
+  }
+  .fstage-bar {
+    height: 36px;
+    background: var(--surface-2);
+    border-radius: var(--r);
+    overflow: hidden;
+    position: relative;
+  }
+  .fstage-fill {
+    height: 100%;
+    border-radius: var(--r);
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 14px;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .fstage-fill.f1 { background: linear-gradient(90deg, var(--brand-300), var(--brand)); }
+  .fstage-fill.f2 { background: linear-gradient(90deg, var(--brand), var(--brand-dark)); }
+  .fstage-fill.f3 { background: linear-gradient(90deg, var(--green), #008c30); }
+  .fstage-rate {
+    font-size: 11px;
+    color: var(--ink-5);
+    font-weight: 700;
+  }
+  .fstage-rate strong { color: var(--ink-2); font-weight: 800; }
+
+  .efficiency-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .eff-row {
+    padding: 16px 0;
+    border-top: 1px solid var(--border-light);
+  }
+  .eff-row:first-child { border-top: none; padding-top: 4px; }
+  .eff-label {
+    font-size: 12px;
+    color: var(--ink-5);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .eff-value {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    font-feature-settings: 'tnum' 1;
+  }
+  .eff-unit {
+    font-size: 12px;
+    color: var(--ink-4);
+    font-weight: 700;
+    margin-left: 4px;
+  }
+  .eff-desc {
+    font-size: 11px;
+    color: var(--ink-5);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  /* CHART: daily bars */
+  .daily-chart {
+    position: relative;
+    padding: 30px 8px 50px;
+  }
+  .dc-scale {
+    position: relative;
+    height: 300px;
+  }
+  .dc-scale-line {
+    position: absolute;
+    left: 46px; right: 0;
+    border-top: 1px dashed var(--border);
+    font-size: 10px;
+    color: var(--ink-5);
+    font-weight: 700;
+    font-family: var(--font-mono);
+    display: flex;
+    justify-content: flex-end;
+  }
+  .dc-scale-line::after {
+    content: attr(data-label);
+    background: var(--surface);
+    padding: 0 6px;
+    transform: translateY(-50%);
+    color: var(--ink-5);
+  }
+  .dc-zero {
+    position: absolute;
+    left: 0; right: 0;
+    border-top: 1.5px solid var(--ink-4);
+    z-index: 2;
+  }
+  .dc-bars {
+    position: absolute;
+    left: 46px; right: 0; top: 0; bottom: 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 4px;
+    align-items: stretch;
+  }
+  .dc-col {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    cursor: default;
+  }
+  .dc-col:hover { background: var(--brand-50); border-radius: 4px; }
+  .dc-top, .dc-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .dc-bar {
+    transition: height 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border-radius: 3px 3px 0 0;
+    min-height: 0;
+    position: relative;
+  }
+  .dc-bar.bar-rev {
+    background: linear-gradient(180deg, #5fd785, var(--green));
+  }
+  .dc-bar.bar-cost {
+    border-radius: 0 0 3px 3px;
+    background: linear-gradient(180deg, #f6727e, var(--red));
+  }
+  .dc-date {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: -32px;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    color: var(--ink-5);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .dc-col.today .dc-date { color: var(--brand); font-weight: 800; }
+  .dc-legend {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  .dc-leg-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--ink-3);
+    font-weight: 700;
+  }
+  .dc-leg-dot {
+    width: 12px; height: 12px;
+    border-radius: 3px;
+  }
+  .dc-leg-dot.rev { background: var(--green); }
+  .dc-leg-dot.cost { background: var(--red); }
+
+  /* TABLE */
+  .table-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-xs);
+  }
+  .table-scroll { overflow-x: auto; }
+  table.daily {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+  }
+  table.daily th {
+    padding: 14px 16px;
+    text-align: right;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--ink-4);
+    letter-spacing: -0.01em;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  table.daily th:first-child { text-align: left; }
+  table.daily td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 13px;
+    vertical-align: middle;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    text-align: right;
+    font-feature-settings: 'tnum' 1;
+  }
+  table.daily td:first-child {
+    font-family: var(--font);
+    text-align: left;
+    font-weight: 700;
+    color: var(--ink-2);
+  }
+  table.daily tbody tr:hover td { background: var(--brand-50); }
+  table.daily tr.no-data td {
+    color: var(--ink-5);
+    background: var(--surface);
+  }
+  table.daily tr.no-data:hover td { background: var(--surface-2); }
+  table.daily tfoot td {
+    border-top: 2px solid var(--ink-2);
+    border-bottom: none;
+    background: var(--surface-2);
+    font-weight: 800;
+    color: var(--ink);
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 13.5px;
+  }
+  .cell-num-pos { color: var(--green); font-weight: 800; }
+  .cell-num-neg { color: var(--red); font-weight: 800; }
+  .cell-num-zero { color: var(--ink-5); }
+  .cell-date-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    background: var(--brand-100);
+    color: var(--brand-dark);
+    border-radius: var(--r-full);
+    font-size: 10px;
+    font-weight: 800;
+    margin-left: 8px;
+  }
+  .cell-date-badge.worst {
+    background: var(--red-light);
+    color: var(--red);
+  }
+
+  /* CALLOUT ROW (best/worst day) */
+  .callout-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--r-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-xs);
+    position: relative;
+    overflow: hidden;
+  }
+  .callout.best { border-left: 4px solid var(--green); }
+  .callout.worst { border-left: 4px solid var(--red); }
+  .callout-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .callout.best .callout-label { color: var(--green); }
+  .callout.worst .callout-label { color: var(--red); }
+  .callout-date {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+    color: var(--ink);
+  }
+  .callout-amount {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 14px;
+    font-feature-settings: 'tnum' 1;
+  }
+  .callout.best .callout-amount { color: var(--green); }
+  .callout.worst .callout-amount { color: var(--red); }
+  .callout-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+  }
+  .co-stat-num {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--ink);
+    font-feature-settings: 'tnum' 1;
+  }
+  .co-stat-label {
+    font-size: 11px;
+    color: var(--ink-5);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  /* INSIGHTS */
+  .insights {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-xs);
+    margin-bottom: 20px;
+  }
+  .insights h3 {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+  .insight {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-top: 1px solid var(--border-light);
+  }
+  .insight:first-of-type { border-top: none; padding-top: 4px; }
+  .insight-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--brand-100);
+    color: var(--brand-dark);
+    display: grid; place-items: center;
+    font-size: 12px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .insight-text {
+    font-size: 13px;
+    color: var(--ink-3);
+    font-weight: 600;
+    line-height: 1.55;
+  }
+  .insight-text strong { color: var(--ink); font-weight: 800; }
+  .insight-text .hl { color: var(--brand); font-weight: 800; }
+  .insight-text .good { color: var(--green); font-weight: 800; }
+  .insight-text .bad { color: var(--red); font-weight: 800; }
+
+  /* FOOTER */
+  footer {
+    padding: 56px 0 40px;
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+  footer .brand {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  footer .brand .dot { color: var(--brand); }
+  footer .meta {
+    font-size: 12px;
+    color: var(--ink-5);
+    font-weight: 600;
+  }
+  footer .meta code {
+    font-family: var(--font-mono);
+    padding: 2px 8px;
+    background: var(--surface-2);
+    border-radius: 6px;
+    margin-left: 4px;
+    font-weight: 700;
+  }
+
+  /* TOAST */
+  .toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--ink);
+    color: white;
+    padding: 12px 20px;
+    border-radius: var(--r);
+    font-size: 13px;
+    font-weight: 700;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: var(--shadow-md);
+    z-index: 9999;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* AUTH GATE */
+  .auth-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: var(--bg);
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    transition: opacity 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.45s;
+  }
+  .auth-gate::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(49, 130, 246, 0.10), transparent 55%),
+      radial-gradient(circle at 80% 80%, rgba(122, 90, 248, 0.06), transparent 55%);
+    pointer-events: none;
+  }
+  .auth-gate.authed {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  body.pre-auth { overflow: hidden; height: 100vh; }
+  body.pre-auth .container { display: none; }
+  .auth-card {
+    position: relative;
+    background: var(--surface);
+    border-radius: var(--r-xl);
+    padding: 44px 40px 36px;
+    max-width: 440px;
+    width: 100%;
+    box-shadow: 0 24px 64px rgba(25, 31, 40, 0.10), 0 2px 8px rgba(25, 31, 40, 0.04);
+    text-align: center;
+    border: 1px solid var(--border-light);
+    animation: authIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  @keyframes authIn {
+    from { opacity: 0; transform: translateY(12px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .auth-lock {
+    width: 64px; height: 64px;
+    margin: 0 auto 24px;
+    background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+    border-radius: 18px;
+    display: grid; place-items: center;
+    color: white;
+    box-shadow: 0 10px 28px rgba(49, 130, 246, 0.32);
+  }
+  .auth-lock svg { width: 30px; height: 30px; }
+  .auth-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--brand-100);
+    color: var(--brand-dark);
+    border-radius: var(--r-full);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    margin-bottom: 14px;
+  }
+  .auth-tag::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--brand);
+  }
+  .auth-card h1 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .auth-desc {
+    font-size: 14px;
+    color: var(--ink-4);
+    font-weight: 600;
+    line-height: 1.55;
+    margin-bottom: 28px;
+  }
+  .auth-form { display: flex; flex-direction: column; gap: 10px; }
+  .auth-input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid var(--border);
+    border-radius: var(--r);
+    font-family: var(--font);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--ink);
+    text-align: center;
+    letter-spacing: 0.15em;
+    background: var(--surface);
+    transition: all 0.15s;
+    font-feature-settings: 'tnum' 1;
+  }
+  .auth-input::placeholder {
+    color: var(--ink-6);
+    font-weight: 600;
+    letter-spacing: normal;
+  }
+  .auth-input:focus {
+    outline: none;
+    border-color: var(--brand);
+    box-shadow: 0 0 0 4px var(--brand-100);
+  }
+  .auth-gate.error .auth-input {
+    border-color: var(--red);
+    animation: shake 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+  }
+  .auth-submit {
+    padding: 16px 20px;
+    border: none;
+    border-radius: var(--r);
+    background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+    color: white;
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.15s;
+    box-shadow: 0 4px 16px rgba(49, 130, 246, 0.28);
+  }
+  .auth-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(49, 130, 246, 0.4);
+  }
+  .auth-error-msg {
+    margin-top: 14px;
+    color: var(--red);
+    font-size: 13px;
+    font-weight: 700;
+    min-height: 18px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .auth-gate.error .auth-error-msg { opacity: 1; }
+  .auth-hint {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+    font-size: 12px;
+    color: var(--ink-5);
+    font-weight: 600;
+  }
+
+  /* FAB */
+  .floating-actions {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+  }
+  .fab {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink-2);
+    display: grid; place-items: center;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(25, 31, 40, 0.12);
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .fab:hover {
+    transform: translateY(-2px);
+    color: var(--brand);
+    border-color: var(--brand-200);
+  }
+  .fab svg { width: 22px; height: 22px; }
+  .fab.primary {
+    background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+    color: white;
+    border: none;
+    box-shadow: var(--shadow-brand);
+  }
+  .fab.primary:hover { color: white; }
+
+  /* DARK */
+  body.dark {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-2: #21262d;
+    --ink: #e6edf3;
+    --ink-2: #c9d1d9;
+    --ink-3: #9aa4b2;
+    --ink-4: #7d8693;
+    --ink-5: #656d7a;
+    --ink-6: #444c56;
+    --border: #30363d;
+    --border-light: #21262d;
+    --brand-50: #1a2332;
+    --brand-100: #15304b;
+    --brand-200: #1f4779;
+    --brand-300: #3a7ed1;
+    --green-light: #0f2e1a;
+    --red-light: #2f1518;
+    --orange-light: #2a1c06;
+    --purple-light: #1d1833;
+  }
+  body.dark .hero::before {
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(49, 130, 246, 0.18), transparent 55%),
+      radial-gradient(ellipse at 80% 20%, rgba(122, 90, 248, 0.10), transparent 55%);
+  }
+  body.dark .dc-scale-line::after { background: var(--surface); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .container { padding: 0 24px; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .funnel-wrap { grid-template-columns: 1fr; }
+    .callout-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    section { padding: 44px 0; }
+    .hero { padding: 48px 0 36px; }
+    .hero h1 { font-size: 36px; }
+    .hero .sub { font-size: 15px; margin-bottom: 28px; }
+    .hero-meta { grid-template-columns: repeat(2, 1fr); padding: 6px; }
+    .hero-meta-item {
+      padding: 14px 16px;
+      border-right: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .hero-meta-item:nth-child(2n) { border-right: none; }
+    .hero-meta-item:nth-child(n+3) { border-bottom: none; }
+    .section-head h2 { font-size: 24px; }
+    .section-head .aside { display: none; }
+    .bottomline { padding: 28px 24px; }
+    .bl-amount { font-size: 40px; }
+    .bl-stats { grid-template-columns: 1fr; gap: 14px; }
+    .card { padding: 20px; }
+    .kpi { padding: 18px; }
+    .kpi-num { font-size: 22px; }
+    .dc-scale { height: 220px; }
+    .dc-date { font-size: 8px; }
+    .callout { padding: 20px; }
+    .callout-date { font-size: 18px; }
+    .callout-amount { font-size: 26px; }
+    table.daily { min-width: 640px; font-size: 12px; }
+    table.daily th, table.daily td { padding: 10px 12px; }
+    .fab { width: 46px; height: 46px; }
+    .auth-card { padding: 32px 24px 28px; }
+    .auth-card h1 { font-size: 19px; }
+  }
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 30px; }
+    .kpi-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .kpi-num { font-size: 20px; }
+    .bl-amount { font-size: 32px; }
+  }
+
+  @media print {
+    body { background: white; }
+    .auth-gate, .floating-actions { display: none; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .reveal.shown { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+
+<body class="pre-auth">
+
+<!-- AUTH GATE -->
+<div class="auth-gate" id="auth-gate" role="dialog" aria-modal="true">
+  <div class="auth-card">
+    <div class="auth-lock">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2.5" ry="2.5"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+    </div>
+    <div class="auth-tag">MONTHLY AD REPORT · INTERNAL</div>
+    <h1>비밀번호를 입력해주세요</h1>
+    <p class="auth-desc">내부 열람용 광고 리포트입니다.<br>권한이 있는 담당자만 접근할 수 있습니다.</p>
+    <form class="auth-form" id="auth-form" autocomplete="off">
+      <input type="password" class="auth-input" id="auth-input" placeholder="비밀번호" autocomplete="off" inputmode="numeric" maxlength="12">
+      <button type="submit" class="auth-submit">열람하기</button>
+    </form>
+    <div class="auth-error-msg" id="auth-error-msg">비밀번호가 올바르지 않습니다</div>
+    <div class="auth-hint">🔒 담당자에게 문의하여 비밀번호를 확인해주세요</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-tag">MONTHLY AD REPORT · 2026 APRIL</div>
+    <h1>메타 광고 지출<br><span class="accent">현황</span> 리포트</h1>
+    <p class="sub">2026년 4월 한 달 동안 집행한 메타(Meta) 광고의 지출 · 문의 · 결제 · 수익을 일자별로 추적하고, 광고 효율과 손익 구조를 종합 정리했습니다.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">리포트 기간</div>
+        <div class="hero-meta-value">2026.04.01 – 04.30</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">집계 일수</div>
+        <div class="hero-meta-value" id="hero-days">—</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">광고 집행일</div>
+        <div class="hero-meta-value" id="hero-active">—</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">총 결제 건수</div>
+        <div class="hero-meta-value" id="hero-pay">—</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- § 01 BOTTOM LINE -->
+  <section id="bottomline">
+    <div class="section-head">
+      <div>
+        <div class="label">§ 01 — Bottom Line</div>
+        <h2>한눈에 보는 손익</h2>
+      </div>
+      <div class="aside">Monthly P&L Snapshot</div>
+    </div>
+
+    <div class="bottomline" id="bottomline-card"></div>
+
+    <div class="insights">
+      <h3>💡 관찰 사항</h3>
+      <div id="insight-list"></div>
+    </div>
+  </section>
+
+  <!-- § 02 KPI -->
+  <section id="kpi">
+    <div class="section-head">
+      <div>
+        <div class="label">§ 02 — Key Metrics</div>
+        <h2>핵심 지표</h2>
+      </div>
+      <div class="aside">Efficiency & Cost</div>
+    </div>
+
+    <div class="kpi-grid" id="kpi-grid"></div>
+  </section>
+
+  <!-- § 03 FUNNEL -->
+  <section id="funnel">
+    <div class="section-head">
+      <div>
+        <div class="label">§ 03 — Conversion Funnel</div>
+        <h2>전환 퍼널</h2>
+      </div>
+      <div class="aside">Inquiry → Payment → Revenue</div>
+    </div>
+
+    <div class="funnel-wrap">
+      <div class="card">
+        <div class="card-title">📊 퍼널 단계별 성과</div>
+        <div class="card-sub">광고 노출부터 최종 수익까지의 전환 흐름</div>
+        <div class="funnel-stages" id="funnel-stages"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">💰 효율 지표</div>
+        <div class="card-sub">건당 / 건별 평균 금액</div>
+        <div class="efficiency-list" id="eff-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- § 04 DAILY CHART -->
+  <section id="daily">
+    <div class="section-head">
+      <div>
+        <div class="label">§ 04 — Daily Trend</div>
+        <h2>일자별 지출 · 수익 추이</h2>
+      </div>
+      <div class="aside">Daily Ad Spend vs Revenue</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📈 광고비(▼) vs 신규 수익(▲)</div>
+      <div class="card-sub">막대 위쪽은 수익, 아래쪽은 광고비. 0원 기준선 위아래 대칭 표시</div>
+      <div class="dc-legend">
+        <div class="dc-leg-item"><span class="dc-leg-dot rev"></span> 신규 수익</div>
+        <div class="dc-leg-item"><span class="dc-leg-dot cost"></span> 광고비</div>
+      </div>
+      <div class="daily-chart">
+        <div class="dc-scale" id="dc-scale"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- § 05 CALLOUT -->
+  <section id="callout">
+    <div class="section-head">
+      <div>
+        <div class="label">§ 05 — Notable Days</div>
+        <h2>최고 · 최저 실적일</h2>
+      </div>
+      <div class="aside">Best & Worst Performance Days</div>
+    </div>
+
+    <div class="callout-row" id="callout-row"></div>
+  </section>
+
+  <!-- § 06 TABLE -->
+  <section id="table">
+    <div class="section-head">
+      <div>
+        <div class="label">§ 06 — Daily Ledger</div>
+        <h2>일자별 상세 내역</h2>
+      </div>
+      <div class="aside">Full Daily Breakdown</div>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-scroll">
+        <table class="daily" id="daily-table">
+          <thead>
+            <tr>
+              <th>날짜</th>
+              <th>문의</th>
+              <th>결제</th>
+              <th>광고비</th>
+              <th>신규 수익</th>
+              <th>손익</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr id="daily-total"></tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="brand">메타 광고 지출 리포트<span class="dot">.</span></div>
+    <div class="meta">Generated 2026.04 · Internal Use Only · Data source <code>4월_메타_광고지출표.xlsx</code></div>
+  </footer>
+
+</div>
+
+<div class="toast" id="toast">복사되었습니다</div>
+
+<div class="floating-actions">
+  <button class="fab" id="theme-toggle" title="다크모드 전환">
+    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+    </svg>
+    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+  <button class="fab primary" id="scroll-top" title="맨 위로" style="display:none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+</div>
+
+<script id="report-data" type="application/json">{"rows": [{"date": "2026-04-01", "inquiries": 7, "payments": 1, "ad_cost": 135062, "revenue": 21750, "net": -113312}, {"date": "2026-04-02", "inquiries": 12, "payments": 1, "ad_cost": 120096, "revenue": 124894, "net": 4798}, {"date": "2026-04-03", "inquiries": 4, "payments": 1, "ad_cost": 113565, "revenue": 133998, "net": 20433}, {"date": "2026-04-04", "inquiries": 1, "payments": 0, "ad_cost": 98155, "revenue": 0, "net": -98155}, {"date": "2026-04-05", "inquiries": 6, "payments": 0, "ad_cost": 132246, "revenue": 0, "net": -132246}, {"date": "2026-04-06", "inquiries": 2, "payments": 0, "ad_cost": 127769, "revenue": 0, "net": -127769}, {"date": "2026-04-07", "inquiries": 2, "payments": 1, "ad_cost": 117575, "revenue": 80000, "net": -37575}, {"date": "2026-04-08", "inquiries": 5, "payments": 1, "ad_cost": 124792, "revenue": 42774, "net": -82018}, {"date": "2026-04-09", "inquiries": 2, "payments": 1, "ad_cost": 111805, "revenue": 347000, "net": 235195}, {"date": "2026-04-10", "inquiries": 2, "payments": 0, "ad_cost": 111540, "revenue": 0, "net": -111540}, {"date": "2026-04-11", "inquiries": 5, "payments": 1, "ad_cost": 110823, "revenue": 111531, "net": 708}, {"date": "2026-04-12", "inquiries": 0, "payments": 0, "ad_cost": 142320, "revenue": 0, "net": -142320}, {"date": "2026-04-13", "inquiries": 12, "payments": 2, "ad_cost": 123132, "revenue": 39388, "net": -83744}, {"date": "2026-04-14", "inquiries": 5, "payments": 1, "ad_cost": 122344, "revenue": 210827, "net": 88483}, {"date": "2026-04-15", "inquiries": 2, "payments": 0, "ad_cost": 113237, "revenue": 0, "net": -113237}, {"date": "2026-04-16", "inquiries": 4, "payments": 3, "ad_cost": 125500, "revenue": 379580, "net": 254080}, {"date": "2026-04-17", "inquiries": 2, "payments": 0, "ad_cost": 105891, "revenue": 0, "net": -105891}, {"date": "2026-04-18", "inquiries": 3, "payments": 0, "ad_cost": 98100, "revenue": 0, "net": -98100}, {"date": "2026-04-19", "inquiries": 5, "payments": 0, "ad_cost": 147184, "revenue": 0, "net": -147184}, {"date": "2026-04-20", "inquiries": 3, "payments": 0, "ad_cost": 149587, "revenue": 0, "net": -149587}, {"date": "2026-04-21", "inquiries": 3, "payments": 0, "ad_cost": 0, "revenue": 0, "net": 0}, {"date": "2026-04-22", "inquiries": 2, "payments": 2, "ad_cost": 163573, "revenue": 80807, "net": -82766}, {"date": "2026-04-23", "inquiries": 1, "payments": 0, "ad_cost": 0, "revenue": 0, "net": 0}, {"date": "2026-04-24", "inquiries": 0, "payments": 0, "ad_cost": 0, "revenue": 0, "net": 0}, {"date": "2026-04-25", "inquiries": 0, "payments": 0, "ad_cost": 0, "revenue": 0, "net": 0}, {"date": "2026-04-26", "inquiries": 0, "payments": 0, "ad_cost": 0, "revenue": 0, "net": 0}, {"date": "2026-04-27", "inquiries": 0, "payments": 0, "ad_cost": 0, "revenue": 0, "net": 0}, {"date": "2026-04-28", "inquiries": 0, "payments": 0, "ad_cost": 0, "revenue": 0, "net": 0}, {"date": "2026-04-29", "inquiries": 0, "payments": 0, "ad_cost": 0, "revenue": 0, "net": 0}, {"date": "2026-04-30", "inquiries": 0, "payments": 0, "ad_cost": 0, "revenue": 0, "net": 0}], "summary": {"total_inquiries": 90, "total_payments": 15, "total_ad_cost": 2594296, "total_revenue": 1572549, "total_net": -1021747, "roas": 60.6, "active_days": 21, "revenue_days": 11, "conv_rate": 16.7, "cpa": 172953, "cpi": 28825, "arpp": 104836, "profit_days": 6, "best_day": {"date": "2026-04-16", "inquiries": 4, "payments": 3, "ad_cost": 125500, "revenue": 379580, "net": 254080}, "worst_day": {"date": "2026-04-20", "inquiries": 3, "payments": 0, "ad_cost": 149587, "revenue": 0, "net": -149587}, "total_days": 30}}</script>
+
+<!-- Auth -->
+<script>
+(function() {
+  'use strict';
+  const PW = '102030';
+  const gate = document.getElementById('auth-gate');
+  const form = document.getElementById('auth-form');
+  const input = document.getElementById('auth-input');
+  setTimeout(() => { try { input.focus(); } catch (e) {} }, 150);
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (input.value === PW) {
+      gate.classList.add('authed');
+      document.body.classList.remove('pre-auth');
+      setTimeout(() => { gate.style.display = 'none'; }, 500);
+      setTimeout(() => {
+        window.dispatchEvent(new Event('scroll'));
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }, 100);
+    } else {
+      gate.classList.add('error');
+      input.select();
+      setTimeout(() => gate.classList.remove('error'), 600);
+    }
+  });
+  input.addEventListener('input', () => gate.classList.remove('error'));
+})();
+</script>
+
+<!-- App -->
+<script>
+(function() {
+  'use strict';
+
+  const DATA = JSON.parse(document.getElementById('report-data').textContent);
+  const rows = DATA.rows;
+  const summary = DATA.summary;
+
+  const $ = s => document.querySelector(s);
+  const $$ = s => Array.from(document.querySelectorAll(s));
+  const esc = s => String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const fmt = n => (n == null || isNaN(n)) ? '—' : Number(n).toLocaleString('ko-KR');
+  const fmtSigned = n => (n > 0 ? '+' : '') + fmt(n);
+  const fmtDate = d => { const p = d.split('-'); return p[1] + '.' + p[2]; };
+  const fmtDateFull = d => {
+    const p = d.split('-');
+    const days = ['일','월','화','수','목','금','토'];
+    const dayName = days[new Date(d).getDay()];
+    return `${p[1]}/${p[2]} (${dayName})`;
+  };
+
+  // Toast
+  const toast = $('#toast');
+  let toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+  }
+
+  // Hero meta
+  $('#hero-days').textContent = summary.total_days + '일';
+  $('#hero-active').textContent = summary.active_days + '일';
+  $('#hero-pay').textContent = summary.total_payments + '건';
+
+  // Count-up
+  function animateCount(el, target, duration = 1100) {
+    const isFloat = !Number.isInteger(target);
+    const startTime = performance.now();
+    function tick(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const val = target * eased;
+      el.textContent = isFloat ? val.toFixed(1) : fmt(Math.floor(val));
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = isFloat ? target.toFixed(1) : fmt(target);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // ===== §01 Bottom Line =====
+  const isNetPositive = summary.total_net >= 0;
+  $('#bottomline-card').className = 'bottomline' + (isNetPositive ? '' : ' negative');
+  $('#bottomline-card').innerHTML = `
+    <div class="bl-label">${isNetPositive ? '◆ 흑자' : '◆ 적자'} · 4월 누적</div>
+    <div class="bl-main">
+      <span class="bl-amount" data-count="${Math.abs(summary.total_net)}">0</span>
+      <span class="bl-unit">원</span>
+    </div>
+    <div class="bl-desc">
+      광고비 <strong>${fmt(summary.total_ad_cost)}원</strong> 집행, 신규 수익 <strong>${fmt(summary.total_revenue)}원</strong> 발생.
+      순손익 <strong>${fmtSigned(summary.total_net)}원</strong>으로 ROAS(광고 대비 수익) <strong>${summary.roas}%</strong> 수준입니다.
+    </div>
+    <div class="bl-stats">
+      <div>
+        <div class="bl-stat-num" data-count="${summary.total_ad_cost}">0</div>
+        <div class="bl-stat-label">총 광고비</div>
+      </div>
+      <div>
+        <div class="bl-stat-num" data-count="${summary.total_revenue}">0</div>
+        <div class="bl-stat-label">총 신규 수익</div>
+      </div>
+      <div>
+        <div class="bl-stat-num">${summary.roas}%</div>
+        <div class="bl-stat-label">ROAS</div>
+      </div>
+    </div>
+  `;
+
+  // Insights
+  const profitRate = Math.round(summary.profit_days / summary.active_days * 100);
+  $('#insight-list').innerHTML = [
+    { n: '01', t: `총 <span class="hl">${summary.active_days}일</span> 광고 집행하여 <strong>${summary.total_inquiries}건의 문의</strong>와 <strong>${summary.total_payments}건의 결제</strong>를 확보했습니다. 문의→결제 전환율 <strong>${summary.conv_rate}%</strong>.` },
+    { n: '02', t: `결제 1건당 평균 광고비(CPA)는 <strong>${fmt(summary.cpa)}원</strong>, 결제 1건당 평균 수익은 <strong>${fmt(summary.arpp)}원</strong>으로 <strong>건당 ${fmtSigned(summary.arpp - summary.cpa)}원</strong>의 평균 손익 차이가 발생합니다.` },
+    { n: '03', t: `광고 집행한 ${summary.active_days}일 중 <span class="hl">${summary.profit_days}일(${profitRate}%)</span>이 흑자였으며, 최고 실적일은 <strong>${fmtDateFull(summary.best_day.date)}</strong>에 <span class="good">+${fmt(summary.best_day.net)}원</span>을 기록했습니다.` },
+    { n: '04', t: `전체 기간 순손익은 <strong class="${isNetPositive ? 'good' : 'bad'}">${fmtSigned(summary.total_net)}원</strong>으로, ROAS ${summary.roas}% ${isNetPositive ? '(손익분기 초과 달성)' : '(손익분기 미달)'} 상태입니다.` },
+  ].map(i => `
+    <div class="insight">
+      <div class="insight-num">${i.n}</div>
+      <div class="insight-text">${i.t}</div>
+    </div>
+  `).join('');
+
+  // ===== §02 KPI =====
+  const kpis = [
+    { icon: '💬', label: '총 문의 수', value: summary.total_inquiries, unit: '건', sub: `일평균 ${(summary.total_inquiries / summary.active_days).toFixed(1)}건` },
+    { icon: '💳', label: '총 결제 수', value: summary.total_payments, unit: '건', sub: `전환율 ${summary.conv_rate}%`, cls: 'rev' },
+    { icon: '📢', label: '결제당 광고비 (CPA)', value: summary.cpa, unit: '원', sub: '낮을수록 효율적', cls: 'cost' },
+    { icon: '🎯', label: '문의당 광고비 (CPI)', value: summary.cpi, unit: '원', sub: '1건 문의 확보 비용', cls: 'purple' },
+  ];
+  $('#kpi-grid').innerHTML = kpis.map(k => `
+    <div class="kpi">
+      <div class="kpi-icon ${k.cls || ''}">${k.icon}</div>
+      <div class="kpi-label">${k.label}</div>
+      <div class="kpi-value">
+        <span class="kpi-num" data-count="${k.value}">0</span>
+        <span class="kpi-unit">${k.unit}</span>
+      </div>
+      <div class="kpi-sub">${k.sub}</div>
+    </div>
+  `).join('');
+
+  // ===== §03 Funnel =====
+  const maxFunnel = Math.max(summary.total_inquiries, summary.total_payments, 1);
+  const inqToPay = summary.total_inquiries > 0 ? (summary.total_payments / summary.total_inquiries * 100) : 0;
+  $('#funnel-stages').innerHTML = `
+    <div class="fstage">
+      <div class="fstage-head">
+        <div class="fstage-name"><span class="emoji">💬</span> 문의 발생</div>
+        <div class="fstage-value">${summary.total_inquiries}건</div>
+      </div>
+      <div class="fstage-bar">
+        <div class="fstage-fill f1" data-w="100">${summary.total_inquiries}건</div>
+      </div>
+      <div class="fstage-rate">광고 집행 ${summary.active_days}일 · 일평균 <strong>${(summary.total_inquiries / summary.active_days).toFixed(1)}건</strong> 문의</div>
+    </div>
+    <div class="fstage">
+      <div class="fstage-head">
+        <div class="fstage-name"><span class="emoji">💳</span> 결제 전환</div>
+        <div class="fstage-value">${summary.total_payments}건</div>
+      </div>
+      <div class="fstage-bar">
+        <div class="fstage-fill f2" data-w="${(summary.total_payments / maxFunnel * 100).toFixed(1)}">${summary.total_payments}건</div>
+      </div>
+      <div class="fstage-rate">전환율 <strong>${summary.conv_rate}%</strong> (문의 → 결제)</div>
+    </div>
+    <div class="fstage">
+      <div class="fstage-head">
+        <div class="fstage-name"><span class="emoji">💰</span> 신규 수익 발생</div>
+        <div class="fstage-value">${fmt(summary.total_revenue)}원</div>
+      </div>
+      <div class="fstage-bar">
+        <div class="fstage-fill f3" data-w="${summary.total_ad_cost > 0 ? Math.min(summary.total_revenue / summary.total_ad_cost * 100, 100).toFixed(1) : 0}">${summary.roas}%</div>
+      </div>
+      <div class="fstage-rate">수익 발생일 <strong>${summary.revenue_days}일</strong> · ROAS <strong>${summary.roas}%</strong></div>
+    </div>
+  `;
+
+  // Efficiency list
+  $('#eff-list').innerHTML = [
+    { label: '결제당 평균 수익 (ARPP)', value: fmt(summary.arpp), unit: '원', desc: '결제 1건 기준 평균 수익' },
+    { label: '결제당 광고비 (CPA)', value: fmt(summary.cpa), unit: '원', desc: `ARPP 대비 ${summary.arpp > 0 ? Math.round(summary.cpa / summary.arpp * 100) : 0}%` },
+    { label: '문의당 광고비 (CPI)', value: fmt(summary.cpi), unit: '원', desc: '문의 1건 발생 비용' },
+    { label: '광고 대비 수익률 (ROAS)', value: summary.roas, unit: '%', desc: summary.roas >= 100 ? '손익분기 초과' : '손익분기 미달' },
+  ].map(e => `
+    <div class="eff-row">
+      <div class="eff-label">${e.label}</div>
+      <div class="eff-value">${e.value}<span class="eff-unit">${e.unit}</span></div>
+      <div class="eff-desc">${e.desc}</div>
+    </div>
+  `).join('');
+
+  // ===== §04 Daily chart =====
+  const CHART_H = 300;
+  const maxUp = Math.max(...rows.map(r => r.revenue), 1);
+  const maxDown = Math.max(...rows.map(r => r.ad_cost), 1);
+  const absMax = Math.max(maxUp, maxDown);
+  const zeroPct = (maxUp / (maxUp + maxDown)) * 100;  // zero line position
+
+  const scale = $('#dc-scale');
+  scale.style.position = 'relative';
+  // Build grid lines
+  let gridHTML = '';
+  gridHTML += `<div class="dc-zero" style="top: ${zeroPct}%"></div>`;
+  // scale labels at top, 25%, 50%, 75%, bottom
+  const tickUp = Math.ceil(maxUp / 100000) * 100000;
+  const tickDown = Math.ceil(maxDown / 100000) * 100000;
+  if (tickUp > 0) {
+    gridHTML += `<div class="dc-scale-line" style="top: 0" data-label="+${fmt(tickUp)}"></div>`;
+  }
+  if (tickDown > 0) {
+    gridHTML += `<div class="dc-scale-line" style="top: 100%" data-label="-${fmt(tickDown)}"></div>`;
+  }
+  // bars container
+  gridHTML += `<div class="dc-bars" id="dc-bars"></div>`;
+  scale.innerHTML = gridHTML;
+
+  const barsEl = $('#dc-bars');
+  barsEl.innerHTML = rows.map((r, i) => {
+    const upH = (r.revenue / absMax) * (zeroPct);
+    const downH = (r.ad_cost / absMax) * (100 - zeroPct);
+    return `
+      <div class="dc-col" title="${fmtDateFull(r.date)} · 광고비 ${fmt(r.ad_cost)}원 · 수익 ${fmt(r.revenue)}원">
+        <div class="dc-top" style="height: ${zeroPct}%">
+          <div class="dc-bar bar-rev" data-h="${upH}" style="height: 0"></div>
+        </div>
+        <div class="dc-bottom" style="height: ${100 - zeroPct}%">
+          <div class="dc-bar bar-cost" data-h="${downH}" style="height: 0"></div>
+        </div>
+        <div class="dc-date">${fmtDate(r.date)}</div>
+      </div>
+    `;
+  }).join('');
+
+  // ===== §05 Callout =====
+  const best = summary.best_day;
+  const worst = summary.worst_day;
+  $('#callout-row').innerHTML = `
+    <div class="callout best">
+      <div class="callout-label">▲ 최고 실적일</div>
+      <div class="callout-date">${fmtDateFull(best.date)}</div>
+      <div class="callout-amount">+${fmt(best.net)}원</div>
+      <div class="callout-stats">
+        <div>
+          <div class="co-stat-num">${fmt(best.ad_cost)}</div>
+          <div class="co-stat-label">광고비 (원)</div>
+        </div>
+        <div>
+          <div class="co-stat-num">${fmt(best.revenue)}</div>
+          <div class="co-stat-label">신규 수익 (원)</div>
+        </div>
+        <div>
+          <div class="co-stat-num">${best.payments}건</div>
+          <div class="co-stat-label">결제 건수</div>
+        </div>
+      </div>
+    </div>
+    <div class="callout worst">
+      <div class="callout-label">▼ 최저 실적일</div>
+      <div class="callout-date">${fmtDateFull(worst.date)}</div>
+      <div class="callout-amount">${fmt(worst.net)}원</div>
+      <div class="callout-stats">
+        <div>
+          <div class="co-stat-num">${fmt(worst.ad_cost)}</div>
+          <div class="co-stat-label">광고비 (원)</div>
+        </div>
+        <div>
+          <div class="co-stat-num">${fmt(worst.revenue)}</div>
+          <div class="co-stat-label">신규 수익 (원)</div>
+        </div>
+        <div>
+          <div class="co-stat-num">${worst.payments}건</div>
+          <div class="co-stat-label">결제 건수</div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // ===== §06 Daily table =====
+  const tbody = $('#daily-table tbody');
+  tbody.innerHTML = rows.map(r => {
+    const hasAd = r.ad_cost > 0;
+    const hasData = r.inquiries > 0 || r.payments > 0 || hasAd || r.revenue > 0;
+    const netClass = r.net > 0 ? 'cell-num-pos' : r.net < 0 ? 'cell-num-neg' : 'cell-num-zero';
+    const isBest = r.date === best.date;
+    const isWorst = r.date === worst.date;
+    return `
+      <tr class="${hasData ? '' : 'no-data'}">
+        <td>
+          ${fmtDateFull(r.date)}
+          ${isBest ? '<span class="cell-date-badge">최고</span>' : ''}
+          ${isWorst ? '<span class="cell-date-badge worst">최저</span>' : ''}
+        </td>
+        <td>${r.inquiries || '—'}</td>
+        <td>${r.payments || '—'}</td>
+        <td>${hasAd ? fmt(r.ad_cost) : '<span class="cell-num-zero">—</span>'}</td>
+        <td>${r.revenue > 0 ? fmt(r.revenue) : '<span class="cell-num-zero">—</span>'}</td>
+        <td class="${netClass}">${r.net !== 0 ? fmtSigned(r.net) : '—'}</td>
+      </tr>
+    `;
+  }).join('');
+
+  const totalNetClass = summary.total_net > 0 ? 'cell-num-pos' : summary.total_net < 0 ? 'cell-num-neg' : '';
+  $('#daily-total').innerHTML = `
+    <td>합계 (${summary.total_days}일)</td>
+    <td>${summary.total_inquiries}</td>
+    <td>${summary.total_payments}</td>
+    <td>${fmt(summary.total_ad_cost)}</td>
+    <td>${fmt(summary.total_revenue)}</td>
+    <td class="${totalNetClass}">${fmtSigned(summary.total_net)}</td>
+  `;
+
+  // ===== Dark mode =====
+  const themeBtn = $('#theme-toggle');
+  const iconSun = themeBtn.querySelector('.icon-sun');
+  const iconMoon = themeBtn.querySelector('.icon-moon');
+  let isDark = false;
+  themeBtn.addEventListener('click', () => {
+    isDark = !isDark;
+    document.body.classList.toggle('dark', isDark);
+    iconSun.style.display = isDark ? 'none' : 'block';
+    iconMoon.style.display = isDark ? 'block' : 'none';
+    showToast(isDark ? '다크 모드로 전환했습니다' : '라이트 모드로 전환했습니다');
+  });
+
+  // Scroll-to-top
+  const topBtn = $('#scroll-top');
+  window.addEventListener('scroll', () => {
+    topBtn.style.display = window.scrollY > 600 ? 'grid' : 'none';
+  });
+  topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // ===== Reveal animations =====
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('shown');
+
+      // count up all nums with data-count
+      e.target.querySelectorAll('[data-count]').forEach(el => {
+        const t = parseFloat(el.dataset.count);
+        if (!isNaN(t)) animateCount(el, t);
+      });
+
+      // funnel bars
+      if (e.target.id === 'funnel') {
+        e.target.querySelectorAll('.fstage-fill').forEach((el, i) => {
+          const w = el.dataset.w;
+          setTimeout(() => { el.style.width = w + '%'; }, 120 * i);
+        });
+      }
+
+      // daily chart bars
+      if (e.target.id === 'daily') {
+        e.target.querySelectorAll('.dc-bar').forEach((el, i) => {
+          const h = el.dataset.h;
+          setTimeout(() => { el.style.height = h + '%'; }, 15 * i);
+        });
+      }
+
+      revealObserver.unobserve(e.target);
+    });
+  }, { threshold: 0.15 });
+
+  $$('section').forEach(s => {
+    s.classList.add('reveal');
+    revealObserver.observe(s);
+  });
+
+})();
+</script>
+
+</body>
+</html>
